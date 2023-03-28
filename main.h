@@ -1,35 +1,41 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef PRINTF_H
+#define PRINTF_H
+
+#define BUFSIZE 1024
 #include <stdarg.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
 
 /**
- * struct fmt - function to check for formats
- * @type: The format to print
- * @f: The print function to use
+ * struct spec_types - Struct to get function of specifier
+ * @spec: specifier
+ * @f: The function associated
  */
-
-typedef struct fmt
+typedef struct spec_types
 {
-        char *type;
-        int (*f)();
-} fmt_t;
+	char *spec;
+	char *(*f)();
+} s_types;
 
+
+char *(*get_spec_func(char s))(va_list);
 int _printf(const char *format, ...);
-int print_op(const char *format, fmt_t *print_arr, va_list list);
-int ch(va_list character);
-int str(va_list string);
-int _int(va_list integ);
-int _ui(va_list unsign);
-int _oct(va_list octo);
-int _rot13(va_list rot);
-int _hex_str(unsigned int n, unsigned int hex, char alpha);
-int _hex_l(va_list hexa);
-int _hex_u(va_list hexa);
+char *char_find(va_list c);
+char *string_find(va_list s);
+char *percent_find(void);
+char *int_find(va_list npoint);
+char *unsigned_find(va_list unsign);
 int _strlen(char *s);
-int _bin(va_list bin);
-int _putchar(char c);
+void _puts(char *buffer, int size);
+char *chartos(char c);
+char *nothing_found(char c);
+char *_memcpy(char *dest, char *src, unsigned int n, unsigned int bufferlen);
+int alloc_buffer(char *hold, int hlen, char *buffer, int size, double *total);
+char *rev_find(va_list s);
+char *rot13_find(va_list s);
+char *binary_find(va_list n);
+char *octal_find(va_list n);
+char *hex_find(va_list n);
+char *HEX_find(va_list n);
+char *address_find(va_list n);
+char *rev_string(char *a, int n);
 
-#endif
+#endif /*PRINTF_H*/
