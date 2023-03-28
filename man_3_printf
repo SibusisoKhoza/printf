@@ -1,5 +1,5 @@
 .\" Manpage for _printf.
-.TH _printf 3 "18 April 2022" "1.0" "Program Manual for _printf"
+.TH _printf 3 "29 March 2023" "1.0" "Program Manual for _printf"
 .SH NAME
  _printf - formatted output conversion and print data.
 .SH SYNOPSIS
@@ -112,11 +112,11 @@ int main(void)
 
 	int length;
 
-	_printf(''%s'', ''Hello, Holberton!'')
+	_printf(''%s'', ''Hello, ALX!'')
 
-	_printf(''Hello Holberton! contains %d characters'', length);
+	_printf(''Hello ALX! contains %d characters'', length);
 
-	length = _printf(''Hello Holberton!'');
+	length = _printf(''Hello ALX!'');
 
 	return (0);
 
@@ -124,4 +124,4 @@ int main(void)
 .SH SEE ALSO
 .R printf(3)
 .SH AUTHORS
-Written by \fBSuara Ayomide\fR and \fBOni Remi\fR.
+Written by \Sibusiso Khoza\fR and \Sylvester Manganye\fR.
